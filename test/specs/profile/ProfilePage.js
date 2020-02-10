@@ -6,6 +6,10 @@ class ProfilePage extends Page {
         return $('//h1');
     }
 
+    get cardsBtn () {
+        return $('//div[@id="site-menu"]//a[@qa="cards-link"]');
+    }
+
 }
 
 export default new ProfilePage();
