@@ -62,4 +62,28 @@ describe('CREATE FLASH GROUP POSITIVE ' +
         browser.pause(5000);
     });
 
+    it('should first item in the list be equal created group title', () =>  {
+        const actual = FlashCardsPage.createdGroupTitle.getText();
+        const expected = cardsPage.groupName;
+        expect(actual).equal(expected);
+        browser.pause(1000);
+    });
+
+    it('should first item in the list be equal created group description', () => {
+        const actual = FlashCardsPage.createdGroupDescription.getText();
+        const expected = cardsPage.groupDescription;
+        expect(actual).equal(expected);
+        browser.pause(1000);
+    });
+
+    it('should verify created title group is clickable', () => {
+        FlashCardsPage.createdGroupTitle.click();
+        browser.pause(1000);
+    });
+
+    after('should user logout', () => {
+        ProfilePage.logout();
+        browser.pause(1000);
+    });
+
 });

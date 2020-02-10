@@ -30,6 +30,14 @@ class FlashCardsPage extends Page {
         return $('//div[contains(@class, "sidepanel")]//button[@type="submit"]');
     }
 
+    get createdGroupTitle() {
+        return $('//div[@qa="flash-group-list "]//h4/a');
+    }
+
+    get createdGroupDescription () {
+        return $('//div[@qa="flash-group-list "]//div[@qa="description"]');
+    }
+
 }
 
 export default new FlashCardsPage();
