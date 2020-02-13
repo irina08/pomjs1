@@ -5,8 +5,8 @@ import FlashCardsPage from "./FlashCardsPage";
 import { cardsPage } from "./cards_data";
 
 
-describe('CREATE FLASH GROUP POSITIVE ' +
-    'with group name', () => {
+describe('CREATE FLASH GROUP NEGATIVE ' +
+    'with empty required field', () => {
     before('', () => {
         LoginPage.login();
         browser.pause(1000);
@@ -38,27 +38,21 @@ describe('CREATE FLASH GROUP POSITIVE ' +
         browser.pause(1000);
     });
 
-    it('should fill out input `Group name` field', () => {
-        const element = FlashCardsPage.groupName;
-        element.setValue(cardsPage.groupName);
+    it('should fill out input `Group description` field', () => {
+        const element = FlashCardsPage.groupDescription;
+        element.setValue(cardsPage.groupDescription);
         browser.pause(1000);
     });
 
-    it('should submit form', () => {
-        FlashCardsPage.createBtn.click();
+    it('should button "Create" will be Disable', () => {
+        const element = FlashCardsPage.createBtn;
+        expect(element.isEnabled()).to.be.false;
         browser.pause(10000);
     });
 
-    it('should first item in the list be equal created group title', () =>  {
-        const actual = FlashCardsPage.createdGroupTitle.getText();
-        const expected = cardsPage.groupName;
-        expect(actual).equal(expected);
-        browser.pause(1000);
-    });
-
-    it('should verify created title group is clickable', () => {
-        FlashCardsPage.createdGroupTitle.click();
-        browser.pause(1000);
+    it('should close Modal Window', () => {
+        FlashCardsPage.closeModalWindow.click();
+        browser.pause(10000);
     });
 
     after('should user logout', () => {

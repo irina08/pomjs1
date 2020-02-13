@@ -6,4 +6,4 @@ const cardsPage = {
     groupName: gname,
     groupDescription: 'The best QA group in the world',
 };
-module.exports = { cardsPage };
+export { cardsPage };

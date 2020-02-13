@@ -38,6 +38,10 @@ class FlashCardsPage extends Page {
         return $('//div[@qa="flash-group-list "]//div[@qa="description"]');
     }
 
+    get closeModalWindow () {
+        return $('//div[contains(@class, "sidepanel")]//span[@aria-hidden="true"]');
+    }
+
 }
 
 export default new FlashCardsPage();
